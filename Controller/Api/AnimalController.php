@@ -10,11 +10,11 @@ class AnimalController extends BaseController {
         if(isset($_GET['id'])){
             $animal = $this->model->read($_GET['id']);
         }else{
-            if(isset($_GET['nom'])){
-                if(isset($_GET['annee'])){
-                    $animal = $this->model->search($_GET['nom'], $_GET['annee']);
+            if(isset($_GET['name'])){
+                if(isset($_GET['year'])){
+                    $animal = $this->model->search($_GET['name'], $_GET['year']);
                 }else{
-                    $animal = $this->model->search($_GET['nom']);
+                    $animal = $this->model->search($_GET['name']);
                 }
             } else {
                 $animal = $this->model->search();
@@ -48,7 +48,7 @@ class AnimalController extends BaseController {
         }
     }
 
-    public function handlePatchRequest() {
+    public function handlePutPatchRequest() {
         $input_data = json_decode(file_get_contents('php://input'), true);
         if ($input_data && isset($_GET['id'])) {
             $animal = $this->model->update($_GET['id'], $input_data);
@@ -64,7 +64,7 @@ class AnimalController extends BaseController {
         }
     }
 
-    public function handlePutRequest() {
+/*     public function handlePutRequest() {
         $input_data = json_decode(file_get_contents('php://input'), true);
 
         if ($input_data && isset($_GET['id'])) {
@@ -80,7 +80,7 @@ class AnimalController extends BaseController {
         } else {
             http_response_code(400);
         }
-    }
+    } */
 
     public function handleDeleteRequest() {
         if (isset($_GET['id'])) {

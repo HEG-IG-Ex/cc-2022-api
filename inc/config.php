@@ -5,5 +5,4 @@
     define("DB_PASSWORD", "");
     define("DB_DATABASE_NAME", "animaux");
 
-
 ?>

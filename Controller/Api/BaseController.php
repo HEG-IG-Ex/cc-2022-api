@@ -54,9 +54,9 @@ class BaseController
                 $this->handlePostRequest();
                 break;
             case 'PATCH':
-                $this->handlePatchRequest();
+                $this->handlePutPatchRequest();
             case 'PUT':
-                $this->handlePutRequest();
+                $this->handlePutPatchRequest();
                 break;
             case 'DELETE':
                 $this->handleDeleteRequest();
@@ -80,18 +80,11 @@ class BaseController
     }
 
     
-    protected function handlePatchRequest()
+    protected function handlePutPatchRequest()
     {
         http_response_code(405);
         exit();
     }
-
-    protected function handlePutRequest()
-    {
-        http_response_code(405);
-        exit();
-    }
-
     protected function handleDeleteRequest()
     {
         http_response_code(405);

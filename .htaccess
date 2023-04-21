@@ -1,4 +1,3 @@
 RewriteEngine on
-RewriteRule ^animals/list?$ index.php?%{QUERY_STRING}
-RewriteRule ^animals/id/([0-9]+)$ index.php?id=$1&%{QUERY_STRING}
+RewriteRule ^animals/([0-9]+)$ index.php?id=$1&%{QUERY_STRING}
 RewriteRule ^animals$ index.php?%{QUERY_STRING}
